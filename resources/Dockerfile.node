@@ -1,0 +1,18 @@
+# 基于镜像基础
+FROM docker.flsim.iovi.com:5000/flsim-env:0.2.2
+
+# COPY ./src /var/app/
+# COPY ./*.py /var/app/
+
+# ADD ./resources/resolv.conf /etc/resolv.conf.override
+
+WORKDIR /var/app
+
+# CMD nodemon --exec "PYTHONPATH='./src' python -v" agent.py --name $RUNNER_NAME
+
+# 如果docker container的DNS解析没有问题，直接使用这行命令即可
+# CMD PYTHONPATH='./src' python agent.py --name $RUNNER_NAME 
+
+# 如果docker container的DNS解析有问题，则使用以下命令，nameserver选择114.114.114.114
+# CMD cp /etc/resolv.conf.override /etc/resolv.conf && 
+CMD PYTHONPATH='./src' python agent.py --node_type $NODE_TYPE --name $RUNNER_NAME --mode prod

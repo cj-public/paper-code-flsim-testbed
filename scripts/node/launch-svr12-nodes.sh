@@ -1,0 +1,12 @@
+sudo rm -rf /tmp/storage/
+docker login docker.flsim.iovi.com:5000
+docker pull docker.flsim.iovi.com:5000/flsim-env:0.2.2
+docker pull docker.flsim.iovi.com:5000/flsim-node:0.2.8
+docker run --network host --name flsim-worker-00000 -d -v /tmp/paper-code-flsim-testbed:/var/app -e TZ=Asia/Shanghai --env NODE_TYPE="node-type-000" --env RUNNER_NAME="flsim-worker-00000" --cpus="2" --memory="6G" docker.flsim.iovi.com:5000/flsim-node:0.2.8
+docker run --network host --name flsim-worker-00012 -d -v /tmp/paper-code-flsim-testbed:/var/app -e TZ=Asia/Shanghai --env NODE_TYPE="node-type-000" --env RUNNER_NAME="flsim-worker-00012" --cpus="2" --memory="6G" docker.flsim.iovi.com:5000/flsim-node:0.2.8
+docker run --network host --name flsim-worker-00014 -d -v /tmp/paper-code-flsim-testbed:/var/app -e TZ=Asia/Shanghai --env NODE_TYPE="node-type-000" --env RUNNER_NAME="flsim-worker-00014" --cpus="2" --memory="6G" docker.flsim.iovi.com:5000/flsim-node:0.2.8
+docker run --network host --name flsim-worker-00017 -d -v /tmp/paper-code-flsim-testbed:/var/app -e TZ=Asia/Shanghai --env NODE_TYPE="node-type-000" --env RUNNER_NAME="flsim-worker-00017" --cpus="2" --memory="6G" docker.flsim.iovi.com:5000/flsim-node:0.2.8
+docker run --network host --name flsim-worker-00019 -d -v /tmp/paper-code-flsim-testbed:/var/app -e TZ=Asia/Shanghai --env NODE_TYPE="node-type-000" --env RUNNER_NAME="flsim-worker-00019" --cpus="2" --memory="6G" docker.flsim.iovi.com:5000/flsim-node:0.2.8
+docker run --network host --name flsim-worker-00022 -d -v /tmp/paper-code-flsim-testbed:/var/app -e TZ=Asia/Shanghai --env NODE_TYPE="node-type-000" --env RUNNER_NAME="flsim-worker-00022" --cpus="2" --memory="6G" docker.flsim.iovi.com:5000/flsim-node:0.2.8
+docker run --network host --name flsim-worker-00033 -d -v /tmp/paper-code-flsim-testbed:/var/app -e TZ=Asia/Shanghai --env NODE_TYPE="node-type-000" --env RUNNER_NAME="flsim-worker-00033" --cpus="2" --memory="6G" docker.flsim.iovi.com:5000/flsim-node:0.2.8
+docker run --network host --name flsim-worker-00051 -d -v /tmp/paper-code-flsim-testbed:/var/app -e TZ=Asia/Shanghai --env NODE_TYPE="node-type-000" --env RUNNER_NAME="flsim-worker-00051" --cpus="2" --memory="6G" docker.flsim.iovi.com:5000/flsim-node:0.2.8
