@@ -47,7 +47,7 @@ def run_loop(runner_names, run_type):
         elif message['fl_system'] == FL_SYSTEM_IRONFORGE:
             from ironforge.coordinator import coordinate
         else:
-            assert False
+            raise ValueError(f"Invalid FL system type: {message['fl_system']}")
 
         # 再加个exception处理
         try:
@@ -105,8 +105,11 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    assert args.node_type
-    assert args.name
-    assert args.mode
+    if not args.node_type:
+        raise ValueError("node_type argument is required")
+    if not args.name:
+        raise ValueError("name argument is required")
+    if not args.mode:
+        raise ValueError("mode argument is required")
 
     wait_for_tasks(args.node_type, args.name, args.mode)
